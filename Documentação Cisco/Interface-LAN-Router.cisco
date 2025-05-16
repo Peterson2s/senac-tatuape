@@ -1,0 +1,14 @@
+enable 
+    configure terminal
+        !Configurar interface de rede LAN
+        interface gigabitEthernet 0/0
+        !Configurar descrição
+        description Interface de Gateway de LAN
+        !Configurar o endereço IPv4
+        ip address 192.168.1.254 255.255.255.0
+        !Habilitar interface
+        no shutdown
+        !Salvar sem sair da interface
+        do write
+        !Sair de tudo
+        end
