@@ -1,2 +1,4 @@
-# senac-tatuape
-Repositório das aulas do SENAC Tatuapé
+# senac-tat
+senac tatuapé 
+
+trabalhando com o git, vscode no lixnux e no windows 10
