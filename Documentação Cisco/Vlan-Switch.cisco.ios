@@ -43,3 +43,68 @@ enable
             switchport access vlan 50 
             end 
 write
+
+!Configuração da vlan de rede sem-fio 
+enable
+    configure terminal
+        interface range GigabitEthernet 1/0/20-23
+            descryption vlan 60 dos access points
+            switchport mode access 
+            switchport nonegotiate 
+            switchport access vlan 60
+            end 
+write
+show running-config
+show running brief
+
+!Configuração da vlan da rede sem-fio
+enable
+    configure terminal
+        interface range GigabitEthernet 1/0/5-9, GigabitEthernet 1/0/14-19, GigabitEthernet 1/0/21-23, GigabitEthernet 1/1/1-4
+        descryption interfaces desligadas
+        shutdown
+        end
+write
+show running-config
+show ip interface brief
+
+!Configuração do switch 2960 (lado esquerdo)
+enable
+    configure terminal
+        interface range fastethernet 0/1 - 4
+        descryption vlan 10 financeira
+        switchport mode access
+        switchport nonegotiate
+        switchport access vlan 10
+        exit
+
+        interface range fastethernet 0/5 - 9
+        descryption vlan 20 estoque
+        switchport mode access
+        switchport nonegotiate
+        switchport access vlan 20
+        exit
+
+        interface range fastethernet 0/10 - 14
+        descryption vlan 30 faturamento 
+        switchport mode access
+        switchport nonegotiate
+        switchport access vlan 30
+        exit
+
+        interface range fastethernet 0/15 - 20
+        descryption vlan 40 gerenciamento
+        switchport mode access
+        switchport nonegotiate 
+        switchport access vlan 40
+        exit
+
+    interface range fastethernet 0/2-4, fastethernet 0/6-9, fastethernet 0/11-14, fastethernet 0/16-22
+    shutdown
+    end
+write 
+show running-config
+show ip interface brief
+show vlan brief
+show vlan id 10
+show vlan name FIN

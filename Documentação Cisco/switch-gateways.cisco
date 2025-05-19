@@ -1,0 +1,44 @@
+!Configuraão dos gateways do switch 3650
+enable 
+    configure terminal
+        ip routing 
+        interface vlan 10
+            descryption gateway vlan 10
+            ip address 172.16.0.158 255.255.255.224
+            no shutdown
+            exit 
+        interface vlan 20
+            descryption gateway vlan 20
+            ip address 172.16.0.190 255.255.255.224
+            no shutdown
+            exit
+        interface vlan 30
+            descryption gateway vlan 30
+            ip address 172.16.0.222 255.255.255.224
+            no shutdown
+            exit 
+        interface vlan 40
+            descryption gateway vlan 40
+            ip address 172.16.0.254 255.255.255.224
+            no shutdown
+            exit 
+        interface vlan 50
+            descryption gateway vlan 50
+            ip address 172.16.0.62 255.255.255.224
+            no shutdown
+            exit 
+        interface vlan 60
+            descryption gateway vlan 60
+            ip address 172.16.0.94 255.255.255.224
+            no shutdown
+            end 
+write
+show running-config
+show ip route
+
+!Configuração do gateway switch 2960
+enable 
+    configure terminal
+        ip default-gateway 172.16.0.97
+        end
+write

@@ -1,0 +1,23 @@
+!Configurando os Trunks (tronco) no switch 3050
+enable 
+    configure terminal
+        interface range GigabitEthernet 1/0/1-9 
+        descryption interface de Trunk
+        switchport mode trunk 
+        switchport nonegotiate
+        end
+write
+show running-config 
+show ip interface brief
+show interfaces status
+show interfaces trunk 
+
+!Configuração do switch 2960 (ambos lados)
+enable 
+    configure terminal
+    interface range GigabitEthernet 0/1-2, Fastethernet 0/23-24
+    descryption interface de trunk 
+    switchport mode trunk
+    switchport nonegotiate
+    end 
+write
