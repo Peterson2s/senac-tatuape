@@ -1,0 +1,27 @@
+!Configuração da interface roteada 
+enable 
+    configure terminal
+        interface GigabitEthernet 1/0/24 
+            no switchport
+            descryption interface com router 4321
+            ip address 172.16.0.29 255.255.255.224
+            end
+write  
+-----------------------------------------------------------
+!Configuraçãp do gateway de saida
+enable
+    configure terminal
+        ip default-gateway 172.16.0.30
+        end
+write
+-----------------------------------------------------------
+!Configuraçao do roteador 4321 interface lan
+enable
+    configure terminal
+        interface GigabitEthernet 0/0/1
+            descryption interface com switch 3650 
+            ip address 172.16.0.30 255.255.255.224
+            no shutdown
+            end
+write
+-----------------------------------------------------------
