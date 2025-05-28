@@ -1,0 +1,30 @@
+!Configuração da interface de WAN router 4321
+enable
+    configure terminal
+        interface GigabitEthernet 0/0/0
+            media-type sfp
+            descryption interface wan com router 1941 
+            ip address 10.0.0.2 255.255.255.252
+            no shutdown
+            end 
+write
+
+!Configuração da interface de WAN router 1941
+enable
+    configure terminal
+        interface GigabitEthernet 0/0/0
+            media-type sfp
+            descryption interface wan com router 4321
+            ip address 10.0.0.1 255.255.255.252
+            no shutdown
+            end 
+write
+------------------------------------------------------
+!Configuração da rota estatica do router 1941
+enable
+    configure terminal
+    !Rota padrão
+        ip route 0.0.0.0 0.0.0.0 10.0.0.2
+        end
+write
+show ip route
