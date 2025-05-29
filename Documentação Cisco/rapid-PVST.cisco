@@ -1,0 +1,10 @@
+!Configuração do switch layer 3 3050
+enable
+    configure terminal
+        !Configuração do primario 
+        spanning-tree vlan 1 root primary
+        !Habilitar o suporte ao rapid-PVST
+        spanning-tree mode rapid-pvst
+        end
+write
+
